@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main">
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <form enctype="multipart/form-data" class="form" role="form" action="" method="post"> {% csrf_token %}
+                    <header align="center"
+                            style="color:#C21325;"
+                            class="h2 text-uppercase font-weight-bold">Add Product
+                    </header>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Product Name</label>
+                                {{ form.name}}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Product Price</label>
+                                {{ form.price}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Product Image</label>
+                                {{ form.image }}
+                                <span style="color: red;">{{ form.username.errors }}</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12 text-right">
+                        <button type="submit" style="background-color:#C21325;color:white;margin-left:20px;"
+                                class="btn ink-reaction">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="mt-5">
+
+</div>
+{% endblock %}

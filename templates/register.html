@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main">
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <form class="form" role="form" action="" method="post"> {% csrf_token %}
+                    <header align="center"
+                            style="color:#C21325;"
+                            class="h2 text-uppercase font-weight-bold">Registration
+                    </header>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>First Name</label>
+                                {{ form.first_name}}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Last Name</label>
+                                {{ form.last_name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>User Name</label>
+                                {{ form.username }}
+                                <span style="color: red;">{{ form.username.errors }}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Email</label>
+                                {{ form.email}}
+                                <span style="color: red;">{{ form.email.errors }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Phone Number</label>
+                                {{ form.phone }}
+                                <span style="color: red;">{{ form.phone.errors }}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Address</label>
+                                {{ form.address}}
+                                <span style="color: red;">{{ form.address.errors }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group required">
+                                <label class='control-label'>City</label>
+                                {{ form.city }}
+                                <span style="color: red;">{{ form.city.errors }}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group required">
+                                <label class='control-label'>State</label>
+                                {{ form.state}}
+                                <span style="color: red;">{{ form.state.errors }}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group required">
+                                <label class='control-label'>Pin</label>
+                                {{ form.pin}}
+                                <span style="color: red;">{{ form.pin.errors }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Password</label>
+                                <input type="password" name="password1" class="form-control" autocomplete="new-password"
+                                       required="" id="id_password1"><br>
+                                <span style="color: red;">{{ form.password1.errors }}</span><br>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group required">
+                                <label class='control-label'>Confirm Password</label>
+                                <input type="password" name="password2" class="form-control" autocomplete="new-password"
+                                       required="" id="id_password2"><br>
+                                <span style="color: red;">{{ form.password2.errors }}</span><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 text-right">
+                        <a href="{% url 'login' %}" style="color:#C21325;">Login</a>
+                        <button type="submit" style="background-color:#C21325;color:white;margin-left:20px;"
+                                class="btn ink-reaction">Submit
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="mt-5">
+
+</div>
+{% endblock %}

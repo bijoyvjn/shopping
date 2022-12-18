@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="products section">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row">
+                    {% for data in products %}
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-thumb">
+                                {% if data.image %}
+                                <img class="img-responsive" src="{{data.image.url}}" alt="product-img"/>
+                                {% endif %}
+                                <div class="preview-meta">
+                                    <ul>
+                                        <li>
+                                            <a href="/cart?count=1&product_id={{data.product_id}}"
+                                               id="cartbtn{{forloop.counter}}"
+                                               onclick="button_disable({{forloop.counter}})"><i
+                                                    class="tf-ion-android-cart"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h4><a href="product-detail.html">{{data.name}}</a></h4>
+                                <p class="price offer_price"> Rs. {{data.price}} <s class="default_price"></s></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+function button_disable(id) {
+        $("#cartbtn"+id).remove();
+        return true;
+    }
+</script>
+
+
+<script>
+$('.cartbtn').on('click', function(e) {
+    e.preventDefault();
+    $(this).off("click").attr('href', "javascript: void(0);");
+});
+</script>
+
+{% endblock %}
